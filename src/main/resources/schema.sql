@@ -4,38 +4,43 @@ DROP TABLE IF EXISTS Ingredient;
 DROP TABLE IF EXISTS Taco_Order;
 
 create table Taco_Order (
-    id int PRIMARY KEY ,
-    delivery_Name varchar(50) not null,
-    delivery_Street varchar(50) not null,
-    delivery_City varchar(50) not null,
-    delivery_State varchar(2) not null,
-    delivery_Zip varchar(10) not null,
-    cc_number varchar(16) not null,
-    cc_expiration varchar(5) not null,
-    cc_cvv varchar(3) not null,
+    id serial PRIMARY KEY ,
+    delivery_Name varchar not null,
+    delivery_Street varchar not null,
+    delivery_City varchar not null,
+    delivery_State varchar not null,
+    delivery_Zip varchar not null,
+    cc_number varchar not null,
+    cc_expiration varchar not null,
+    cc_cvv varchar not null,
     placed_at timestamp not null);
 
 create table Taco (
-    id int,
-    name varchar(50) not null,
+    id serial,
+    name varchar not null,
     taco_order bigint not null,
     taco_order_key bigint not null,
     created_at timestamp not null
     );
 
 create table Ingredient_Ref (
-    ingredient varchar(4) not null,
+    ingredient varchar not null,
     taco int not null,
     taco_key int not null
     );
 
 create table Ingredient (
-    id varchar(4) PRIMARY KEY ,
-    name varchar(25) not null,
-    type varchar(10) not null
+    id varchar PRIMARY KEY ,
+    name varchar not null,
+    type varchar not null
     );
 
 alter table Taco
     add foreign key (taco_order) references Taco_Order(id);
 alter table Ingredient_Ref
     add foreign key (ingredient) references Ingredient(id);
+
+SELECT * FROM Ingredient;
+SELECT * FROM Taco;
+SELECT * FROM Ingredient_Ref;
+SELECT * FROM Taco_Order
