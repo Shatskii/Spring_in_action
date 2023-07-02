@@ -1,13 +1,21 @@
 package com.shatskii.spring_in_action.pojo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@AllArgsConstructor()
+@Table("ingredient")
 public class Ingredient {
+    @Id
+    @Column("id")
     private String id;
+
+    @Column("name")
     private String name;
+
+    @Column("type")
     private Type type;
 
 
