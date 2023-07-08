@@ -3,14 +3,13 @@ package com.shatskii.spring_in_action.pojo;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Data
 @Table("taco_order")
@@ -55,7 +54,8 @@ public class TacoOrder {
 
     @Column("placed_at")
     private Date placedAt = new Date();
-    private List<Taco> tacos = new ArrayList<>();
+    @MappedCollection(idColumn = "taco_order")
+    private Set<Taco> tacos = new HashSet<>();
 
     public void addTaco(Taco taco) {
         tacos.add(taco);

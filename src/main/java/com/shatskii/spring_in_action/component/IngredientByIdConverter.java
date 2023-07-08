@@ -1,6 +1,6 @@
 package com.shatskii.spring_in_action.component;
 
-import com.shatskii.spring_in_action.pojo.Ingredient;
+import com.shatskii.spring_in_action.pojo.IngredientRef;
 import com.shatskii.spring_in_action.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class IngredientByIdConverter implements Converter<String, Ingredient> {
+public class IngredientByIdConverter implements Converter<String, IngredientRef> {
     private IngredientRepository repository;
 
     @Autowired
@@ -17,7 +17,7 @@ public class IngredientByIdConverter implements Converter<String, Ingredient> {
     }
 
     @Override
-    public Ingredient convert(String id) {
-        return repository.findById(id).get();
+    public IngredientRef convert(String id) {
+        return new IngredientRef(repository.findById(id).get().getId());
     }
 }

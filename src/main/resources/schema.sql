@@ -18,18 +18,10 @@ create table Taco_Order
 
 create table Taco
 (
-    id             serial,
+    id             serial primary key,
     name           varchar   not null,
-    taco_order     bigint    not null,
-    taco_order_key bigint    not null,
+    taco_order     bigint references Taco_Order (id),
     created_at     timestamp not null
-);
-
-create table Ingredient_Ref
-(
-    ingredient varchar not null,
-    taco       int     not null,
-    taco_key   int     not null
 );
 
 create table Ingredient
@@ -39,12 +31,23 @@ create table Ingredient
     type varchar not null
 );
 
-alter table Taco
-    add foreign key (taco_order) references Taco_Order (id);
-alter table Ingredient_Ref
-    add foreign key (ingredient) references Ingredient (id);
+create table Ingredient_Ref
+(
+    taco_id       int references Taco (id),
+    ingredient_id varchar references Ingredient (id),
+    primary key (taco_id, ingredient_id)
+);
 
-SELECT * FROM Ingredient;
-SELECT * FROM Taco;
-SELECT * FROM Ingredient_Ref;
-SELECT * FROM Taco_Order
+SELECT *
+FROM Ingredient;
+SELECT *
+FROM Taco;
+SELECT *
+FROM Ingredient_Ref;
+SELECT *
+FROM Taco_Order;
+
+drop table Ingredient cascade;
+drop table Taco cascade;
+drop table Ingredient_Ref cascade;
+drop table Taco_Order cascade;
