@@ -1,6 +1,6 @@
 package com.shatskii.spring_in_action.component;
 
-import com.shatskii.spring_in_action.pojo.IngredientRef;
+import com.shatskii.spring_in_action.entity.IngredientRef;
 import com.shatskii.spring_in_action.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;

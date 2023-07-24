@@ -1,4 +1,4 @@
-package com.shatskii.spring_in_action.pojo;
+package com.shatskii.spring_in_action.entity;
 
 import lombok.Data;
 

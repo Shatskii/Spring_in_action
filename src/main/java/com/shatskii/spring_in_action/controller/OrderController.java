@@ -1,6 +1,6 @@
 package com.shatskii.spring_in_action.controller;
 
-import com.shatskii.spring_in_action.pojo.TacoOrder;
+import com.shatskii.spring_in_action.entity.TacoOrder;
 import com.shatskii.spring_in_action.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

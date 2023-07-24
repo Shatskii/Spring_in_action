@@ -1,8 +1,8 @@
 package com.shatskii.spring_in_action.controller;
 
-import com.shatskii.spring_in_action.pojo.Ingredient;
-import com.shatskii.spring_in_action.pojo.Taco;
-import com.shatskii.spring_in_action.pojo.TacoOrder;
+import com.shatskii.spring_in_action.entity.Ingredient;
+import com.shatskii.spring_in_action.entity.Taco;
+import com.shatskii.spring_in_action.entity.TacoOrder;
 import com.shatskii.spring_in_action.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.shatskii.spring_in_action.pojo.Ingredient.Type;
+import com.shatskii.spring_in_action.entity.Ingredient.Type;
 
 
 @Controller

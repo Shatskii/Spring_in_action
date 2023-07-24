@@ -1,8 +1,6 @@
-package com.shatskii.spring_in_action.pojo;
+package com.shatskii.spring_in_action.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
